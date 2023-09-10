@@ -308,11 +308,21 @@ body {
   height: 48px;
   min-width: 48px;
   border-radius: 0.25rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   margin-right: 0.5rem;
   font-size: 1rem;
-  color: #fff;
+  color: #ffffff;
+  background-color: #f50404;
   cursor: pointer;
+  border: 2px solid #f50404;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+.PostPage button:hover{
+  color: #f50404;
+  background-color:transparent;
+  font-weight: 600;
+  border: 2px solid #f50404;
 }
 
 .deleteButton {

@@ -26,6 +26,7 @@ const NewPost = ({
           required
           value={postBody}
           onChange={(e) => setPostBody(e.target.value)}
+          
         />
 
         <button type="submit">Submit</button>

@@ -8,8 +8,9 @@ import Missing from "./Componnets/Missing";
 import Nav from "./Componnets/Nav";
 import NewPost from "./Componnets/NewPost";
 import PostPage from "./Componnets/PostPage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
+
 
 function App() {
   const [posts, setPost] = useState([
@@ -42,6 +43,7 @@ function App() {
   const [searchResult, setSearchResult] = useState([]);
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
+  // const navigate = useNavigate()
 
   useEffect(() => {
     const filterPost = posts.filter((post) =>{
@@ -62,62 +64,58 @@ function App() {
     setPost(allPost);
     setPostTitle("");
     setPostBody("");
-  };
-  return (
-    <div className="App">
-      <Router>
-        <Routes>
-        <Route 
-        path="/"
-        element={
-          <>
-          <Header />
-          <Nav search={search} setSearch={setSearch} />
-          <Home posts={searchResult} />
-          <Footer />
-
-          </>
-        }
-        ></Route>
-        <Route 
-        path="/post"
-        element={
-          <>
-          <Header />
-          <Nav search={search} setSearch={setSearch} />
-          <NewPost
-            postTitle={postTitle}
-            setPostTitle={setPostTitle}
-            postBody={postBody}
-            setPostBody={setPostBody}
-            postSubmit={postSubmit}/>
-          <Footer />
-          </>
-        }
-        ></Route>
-        <Route
-        path="/about"
-        element={
-          <>
-           <Header />
-          <Nav search={search} setSearch={setSearch} />
-          <About />
-          <Footer />
-          </>
-        }
-        >
-
-        </Route>
-        </Routes>
-      </Router>
-      
-      
-      
-      {/* <PostPage />
+    // navigate('/', { replace: true })
    
-      <Missing /> */}
-      
-    </div>
+  };
+
+  const deletedPost =(id)=>{
+    const deletedItem = posts.filter(post=>post.id !== id)
+    setPost(deletedItem);
+    // navigate('/post')
+  };
+
+  return (
+    <Router>
+      <div className="App">
+        <Header />
+        <Nav search={search} setSearch={setSearch} />
+
+          <Routes>
+            <Route 
+            path="/"
+            element={
+              <Home posts={searchResult} />
+            }
+            ></Route>
+            <Route path="/post" >
+              <Route index element={
+                <NewPost
+                postTitle={postTitle}
+                setPostTitle={setPostTitle}
+                postBody={postBody}
+                setPostBody={setPostBody}
+                postSubmit={postSubmit}/>
+                } />
+              <Route path=":id" element={<PostPage posts={posts} deletedPost={deletedPost}/>} />
+            </Route>
+            <Route
+            path="/about"
+            element={
+              <About />
+            }
+            ></Route>
+            <Route
+            path="*" 
+            element={
+              <Missing /> 
+            }
+            ></Route>
+          </Routes>
+        
+        <Footer />
+        
+      </div>
+    </Router>
   );
 }
 
