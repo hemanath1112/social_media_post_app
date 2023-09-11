@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router";
+
 
 
 const NewPost = ({
@@ -9,7 +9,7 @@ const NewPost = ({
   setPostBody,
   postSubmit,
 }) => {
-  const navigation = useNavigate()
+ 
   return (
     <div className="NewPost">
       <h2>New Post</h2>

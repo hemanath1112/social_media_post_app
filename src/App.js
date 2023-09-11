@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import "./App.css";
 import About from "./Componnets/About";
 import Footer from "./Componnets/Footer";
@@ -80,7 +80,7 @@ function App() {
       const datetime = format(new Date(), "MMMM dd, yyyy pp");
       const updatedPost = { id, title: editTitle, datetime, discription: editBody };
       const response = await api.put(`/posts/${id}`, updatedPost);
-      setPost(posts.map(post=> post.id===id ? {... response.data}: post));
+      setPost(posts.map(post=> post.id===id ? {...response.data}: post));
       setEditTitle("");
       setEditBody("");
     }
