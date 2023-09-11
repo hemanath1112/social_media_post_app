@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom';
 
 const PostPage = ({posts, deletedPost}) => {
 
@@ -13,7 +14,12 @@ const PostPage = ({posts, deletedPost}) => {
           <h2>{post.title}</h2>
           <p className='postDate'>{post.datetime}</p>
           <p className='postBody'>{post.discription}</p>
-          <button type='submit' onClick={()=>deletedPost(post.id)}>
+          <Link to={`/edit/${post.id}`} >
+          <button>
+            Edit post
+          </button> 
+          </Link>
+          <button type='submit' onClick={()=>deletedPost(post.id)} >
             Deleted Post
           </button>
         </>

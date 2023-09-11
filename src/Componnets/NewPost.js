@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router";
+
 
 const NewPost = ({
   postTitle,
@@ -7,6 +9,7 @@ const NewPost = ({
   setPostBody,
   postSubmit,
 }) => {
+  const navigation = useNavigate()
   return (
     <div className="NewPost">
       <h2>New Post</h2>
@@ -25,11 +28,10 @@ const NewPost = ({
           id="postBody"
           required
           value={postBody}
-          onChange={(e) => setPostBody(e.target.value)}
-          
+          onChange={(e) => setPostBody(e.target.value)} 
         />
-
-        <button type="submit">Submit</button>
+        <button type="submit" >Submit</button>
+        
       </form>
     </div>
   );
