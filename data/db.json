@@ -1,22 +1,16 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "My First post",
-      "datetime": "July 01, 2021 11:17:36 AM",
-      "discription": "Made a video about tes 01 result"
-    },
-    {
       "id": 2,
       "title": "I have completd the to do list app",
       "datetime": "September 11, 2023 5:52:18 PM",
       "discription": "This project is based on React JS and react hooks "
     },
     {
-      "id": 6,
-      "title": "completed the next project",
-      "datetime": "September 11, 2023 5:33:17 PM",
-      "discription": "I have completed the social media post app using the React router react Axios and react hooks"
+      "id": 3,
+      "title": "i completed for my project",
+      "datetime": "September 11, 2023 11:44:13 PM",
+      "discription": "successfull develop the app "
     }
   ]
 }
